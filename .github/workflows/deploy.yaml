@@ -32,6 +32,7 @@ jobs:
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ./dist/
         protocol: ftps
+        state-name: .ftp-deploy-sync-frontend-state.json
         exclude: |
           .htaccess
           .resume.json
