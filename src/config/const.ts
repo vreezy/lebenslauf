@@ -1,0 +1,1 @@
+export const RESUME_URL = "https://lebenslauf.vreezy.de/resume.json";

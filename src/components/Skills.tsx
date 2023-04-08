@@ -1,11 +1,18 @@
 
 import { Stack, StackItem, Link, Text, IStackTokens} from "@fluentui/react";
 
-import resume from "resume/resume.json";
+
 import { v4 as uuidv4 } from 'uuid';
+import useSiteStore from "@/stores/site";
+import { shallow } from "zustand/shallow";
+import { containerStackTokens } from "@/styles/styles";
 
 export default function Skills() {
-  const containerStackTokens: IStackTokens = { childrenGap: 5 };
+  const resume = useSiteStore((state) => state.resume, shallow);
+
+  if (!resume.skills) {
+    return null;
+  }
 
   return (
     <Stack tokens={containerStackTokens}>
@@ -14,7 +21,7 @@ export default function Skills() {
             <StackItem key={uuidv4()}>
               <Text block>{skill.name} - {skill.level}</Text>
               
-                {skill.keywords.map(keyword => {
+                {skill.keywords && skill.keywords.map(keyword => {
                   return (
                     <span key={uuidv4()} className="badge rounded-pill text-bg-secondary">{keyword}</span>
                   )
