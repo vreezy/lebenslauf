@@ -1,6 +1,6 @@
 
 import { containerStackTokens } from "@/styles/styles";
-import { Stack, StackItem, Link, Text, IStackTokens} from "@fluentui/react";
+import { Stack, StackItem, Link} from "@fluentui/react";
 
 
 import { v4 as uuidv4 } from 'uuid';

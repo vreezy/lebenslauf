@@ -29,36 +29,38 @@ export default function About() {
   // TODO: ICONS
   // https://developer.microsoft.com/en-us/fluentui#/controls/web/activityitem ???
   return (
-    <Stack tokens={containerStackTokens}>
-      <StackItem>
-        <h3>Über mich</h3>
-      </StackItem>
-
-      {validateAdress(resume) && (
+    <section>
+      <Stack tokens={containerStackTokens}>
         <StackItem>
-          <Text block>{resume.basics.location!.address}</Text>
-          <Text block>
-            {resume.basics.location!.countryCode}{" "}
-            {resume.basics.location!.postalCode} {resume.basics.location!.city}
-          </Text>
+          <h3>Über mich</h3>
         </StackItem>
-      )}
 
-      <StackItem>{resume.basics.email}</StackItem>
-
-      <StackItem>{resume.basics.phone}</StackItem>
-
-      <StackItem>{resume.basics.url}</StackItem>
-
-      {resume.basics?.profiles && resume.basics.profiles.map((profile) => {
-        return (
-          <StackItem key={uuidv4()}>
-            <Link href={profile.url}>
-              {profile.network} - {profile.username}
-            </Link>
+        {validateAdress(resume) && (
+          <StackItem>
+            <Text block>{resume.basics.location!.address}</Text>
+            <Text block>
+              {resume.basics.location!.countryCode}{" "}
+              {resume.basics.location!.postalCode} {resume.basics.location!.city}
+            </Text>
           </StackItem>
-        );
-      })}
-    </Stack>
+        )}
+
+        <StackItem>{resume.basics.email}</StackItem>
+
+        <StackItem>{resume.basics.phone}</StackItem>
+
+        <StackItem>{resume.basics.url}</StackItem>
+
+        {resume.basics?.profiles && resume.basics.profiles.map((profile) => {
+          return (
+            <StackItem key={uuidv4()}>
+              <Link href={profile.url}>
+                {profile.network} - {profile.username}
+              </Link>
+            </StackItem>
+          );
+        })}
+      </Stack>
+    </section>
   );
 }

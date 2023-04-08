@@ -1,42 +1,12 @@
 import Head from "next/head";
-import Image from "next/image";
-
 // import styles from '@/styles/Home.module.css'
 import "bootstrap/dist/css/bootstrap.css";
 import Navigation from "@/components/Navigation";
-import { Container } from "react-bootstrap";
-import Header from "@/components/Header";
-import { Stack, StackItem } from "@fluentui/react";
-import About from "@/components/About";
-import Certificates from "@/components/Certificates";
-import { containerStackTokens } from "@/styles/styles";
-import Skills from "@/components/Skills";
-import useSiteStore from "@/stores/site";
-import { shallow } from "zustand/shallow";
+import Main from "@/components/Main";
 import Data from "@/components/Data";
 
 export default function Home() {
   
-  const resume = useSiteStore((state) => state.resume, shallow);
-  const isLoading = useSiteStore((state) => state.isLoading, shallow);
-  const isError = useSiteStore((state) => state.isError, shallow);
-
-  if (isError) {
-    return (
-      <>
-        Error
-      </>
-    )
-  }
-
-  if (isLoading) {
-    return (
-      <>
-        <Data />
-        Loading... xxx
-      </>
-    ) 
-  }
 
   return (
     <>
@@ -47,43 +17,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navigation />
-      <main>
-        <Container>
-          <Header />
-          <Stack horizontal tokens={containerStackTokens}>
-            <StackItem grow={1}>
-              <About />
-              <Certificates />
-              <Skills />
-
-              {/* TODO: skills */}
-              {/* TODO: languages */}
-              {/* TODO: interests */}
-            </StackItem>
-            <StackItem grow={3}>
-              right side
-              {/* TODO: summary */}
-              {/* TODO: work */}
-              {/* TODO: volunteer */}
-              {/* TODO: education */}
-            </StackItem>
-          </Stack>
-        </Container>
-        <section className={"container"}>
-          {/* <Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
-                className={styles.vercelLogo}
-                width={100}
-                height={24}
-                priority
-              /> */}
-
-          <div>
-            <pre>{JSON.stringify(resume, null, 2)}</pre>
-          </div>
-        </section>
-      </main>
+      <Main />
+      
+      <Data />
     </>
   );
 }
