@@ -1,11 +1,18 @@
-import { ResumeSchema } from "@/models/ResumeSchema";
-
-import { containerStackTokens } from "@/styles/styles";
+// Components
 import { Stack, StackItem, Link, Text } from "@fluentui/react";
 
+// Utils
 import { v4 as uuidv4 } from "uuid";
+
+// Stores
 import useSiteStore from "@/stores/site";
 import { shallow } from "zustand/shallow";
+
+// Styles
+import { containerStackTokens } from "@/styles/styles";
+
+// Interfaces
+import { ResumeSchema } from "@/models/ResumeSchema";
 
 export default function About() {
   const resume = useSiteStore((state) => state.resume, shallow);

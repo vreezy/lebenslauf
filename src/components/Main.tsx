@@ -1,18 +1,26 @@
-import Image from "next/image";
-
-// import styles from '@/styles/Home.module.css'
-import "bootstrap/dist/css/bootstrap.css";
-
+// Components
+import { Stack, StackItem } from "@fluentui/react";
 import { Container } from "react-bootstrap";
 import Header from "@/components/Header";
-import { Stack, StackItem } from "@fluentui/react";
 import About from "@/components/About";
 import Certificates from "@/components/Certificates";
-import { containerStackTokens } from "@/styles/styles";
 import Skills from "@/components/Skills";
+import Loading from "./Loading";
+import Interests from "./Interests";
+import Languages from "./Languages";
+import Summary from "./Summary";
+import Work from "./Work";
+
+// import Image from "next/image";
+
+// Stores
 import useSiteStore from "@/stores/site";
 import { shallow } from "zustand/shallow";
-import Loading from "./Loading";
+
+// Styles
+// import styles from '@/styles/Home.module.css'
+import "bootstrap/dist/css/bootstrap.css";
+import { containerStackTokens } from "@/styles/styles";
 
 export default function Main() {
   const resume = useSiteStore((state) => state.resume, shallow);
@@ -20,11 +28,23 @@ export default function Main() {
   const isError = useSiteStore((state) => state.isError, shallow);
 
   if (isError) {
-    return <>Unknown Error</>;
+    return (
+      <main>
+        <Container>
+          Unknown Error
+        </Container>
+      </main>
+    );
   }
 
   if (isLoading) {
-    return <Loading />;
+    return (
+      <main>
+        <Container>
+          <Loading />
+        </Container>
+      </main>
+    );
   }
 
   return (
@@ -32,18 +52,16 @@ export default function Main() {
       <Container>
         <Header />
         <Stack horizontal tokens={containerStackTokens}>
-          <StackItem grow={1}>
+          <StackItem grow={1} >
             <About />
             <Certificates />
             <Skills />
-
-            {/* TODO: languages */}
-            {/* TODO: interests */}
+            <Languages />
+            <Interests />
           </StackItem>
           <StackItem grow={3}>
-            right side
-            {/* TODO: summary */}
-            {/* TODO: work */}
+            <Summary />
+            <Work />
             {/* TODO: volunteer */}
             {/* TODO: education */}
           </StackItem>
