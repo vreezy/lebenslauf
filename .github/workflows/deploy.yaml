@@ -30,7 +30,7 @@ jobs:
         server: vreezy.de
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: /dist/
+        local-dir: ./dist/
         protocol: ftps
 
        
