@@ -4,10 +4,15 @@ import { shallow } from "zustand/shallow";
 export default function Dev() {
   const resume = useSiteStore((state) => state.resume, shallow);
 
-  const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
 
-  const dev = urlParams.get("dev");
+  let dev = null;
+  if (typeof window !== "undefined") {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    dev = urlParams.get("dev");
+  }
+
+
 
   if (dev) {
     return (
