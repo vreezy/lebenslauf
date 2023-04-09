@@ -1,5 +1,5 @@
 // Components
-import { Label, Stack, StackItem, Text } from "@fluentui/react";
+import { Label, Stack, StackItem } from "@fluentui/react";
 import Badges from "./Badges";
 import Top from "./Top";
 

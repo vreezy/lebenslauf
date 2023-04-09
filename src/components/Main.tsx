@@ -48,7 +48,7 @@ export default function Main() {
   return (
     <main>
       <Container>
-        <Stack horizontal tokens={mainTokens}>
+        <Stack horizontal tokens={mainTokens} style={{marginTop: "20px"}}>
           <StackItem grow={2}>
             <Stack tokens={mainTokens}>
               <About />
