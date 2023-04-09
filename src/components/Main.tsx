@@ -46,28 +46,30 @@ export default function Main() {
   };
 
   return (
-    <main>
-      <Container>
-        <Stack horizontal tokens={mainTokens} style={{marginTop: "20px"}}>
-          <StackItem grow={2}>
-            <Stack tokens={mainTokens}>
-              <About />
-              <Certificates />
-              <Skills />
-              <Languages />
-              <Interests />
-            </Stack>
-          </StackItem>
-          <StackItem grow={3} style={{ marginLeft: "2rem" }}>
-            <Stack tokens={mainTokens}>
-              <Summary />
-              <Work />
-              <Volunteer />
-              <Education />
-            </Stack>
-          </StackItem>
-        </Stack>
-      </Container>
+    <main
+      className="container"
+      style={{ maxWidth: "900px", marginTop: "20px" }}
+    >
+      <div className="row">
+        <div className="col-lg-4 col-md-4 col-sm-12">
+          <Stack tokens={mainTokens}>
+            <About />
+            <Certificates />
+            <Skills />
+            <Languages />
+            <Interests />
+          </Stack>
+        </div>
+        <div className="col-lg-8 col-md-8 col-sm-12">
+          <Stack tokens={mainTokens}>
+            <Summary />
+            <Work />
+            <Volunteer />
+            <Education />
+          </Stack>
+        </div>
+      </div>
+
       <section className={"container"}>
         {/* <Image
         src="/vercel.svg"

@@ -42,6 +42,7 @@ export default function About() {
     return false;
   }
 
+  const streetIcon: IIconProps = { iconName: "Street" };
   const websiteIcon: IIconProps = { iconName: "Website" };
   const phoneIcon: IIconProps = { iconName: "Phone" };
   const mailIcon: IIconProps = { iconName: "Mail" };
@@ -68,12 +69,24 @@ export default function About() {
         {validateAdress(resume) && (
           <section>
             <StackItem>
-              <Text block>{resume.basics.location!.address}</Text>
-              <Text block>
-                {resume.basics.location!.countryCode}{" "}
-                {resume.basics.location!.postalCode}{" "}
-                {resume.basics.location!.city}
-              </Text>
+              <ActionButton
+                href={`https://maps.google.com/?q=${
+                  resume.basics.location!.address
+                } ${resume.basics.location!.countryCode} ${
+                  resume.basics.location!.postalCode
+                } ${resume.basics.location!.city}`}
+                styles={actionButtonStyles}
+                iconProps={streetIcon}
+                target="_blank"
+              >
+                <Text block style={{ textAlign: "start" }}>
+                  {resume.basics.location!.address}
+                  <br />
+                  {resume.basics.location!.countryCode}{" "}
+                  {resume.basics.location!.postalCode}{" "}
+                  {resume.basics.location!.city}
+                </Text>
+              </ActionButton>
             </StackItem>
           </section>
         )}
@@ -133,6 +146,7 @@ export default function About() {
                 networkIcon.iconName = "LinkedInLogo";
                 break;
               case "teams":
+              case "Teams":
                 networkIcon.iconName = "TeamsLogo";
                 break;
               default:

@@ -1,9 +1,9 @@
 // Components
 import { Stack, StackItem, Text } from "@fluentui/react";
 import Top from "./Top";
-import DateField from "./DateField";
 import List from "./List";
 import TopLink from "./TopLink";
+import DateBlock from "./DateBlock";
 
 // Utils
 import { v4 as uuidv4 } from "uuid";
@@ -46,17 +46,10 @@ export default function Volunteer() {
                           </TopLink>
                         </StackItem>
                         <StackItem>
-                          <Text block>
-                            <DateField
-                              dateString={volunteer.startDate}
-                              type="start"
-                            />
-                            {" - "}
-                            <DateField
-                              dateString={volunteer.endDate}
-                              type="end"
-                            />
-                          </Text>
+                          <DateBlock
+                            startDate={volunteer.startDate}
+                            endDate={volunteer.endDate}
+                          />
                         </StackItem>
                       </Stack>
                     </StackItem>

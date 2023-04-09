@@ -1,9 +1,9 @@
 // Components
 import { Stack, StackItem, Text } from "@fluentui/react";
 import Top from "./Top";
-import DateField from "./DateField";
 import List from "./List";
 import TopLink from "./TopLink";
+import DateBlock from "./DateBlock";
 
 // Utils
 import { v4 as uuidv4 } from "uuid";
@@ -48,14 +48,10 @@ export default function Work() {
                           </TopLink>
                         </StackItem>
                         <StackItem>
-                          <Text block style={{ fontStyle: "italic" }}>
-                            <DateField
-                              dateString={work.startDate}
-                              type="start"
-                            />
-                            {" - "}
-                            <DateField dateString={work.endDate} type="end" />
-                          </Text>
+                          <DateBlock
+                            startDate={work.startDate}
+                            endDate={work.endDate}
+                          />
                         </StackItem>
                       </Stack>
                     </StackItem>
@@ -75,7 +71,11 @@ export default function Work() {
                   <section>
                     <StackItem>
                       <Text block>{work.description}</Text>
-                      <Text block>{work.summary}</Text>                      
+                    </StackItem>
+                  </section>
+                  <section>
+                    <StackItem>
+                      <Text block>{work.summary}</Text>
                     </StackItem>
                   </section>
                   <section>

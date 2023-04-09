@@ -18,6 +18,7 @@ export default function TopLink(props: PropsWithChildren<TopLinkProps>) {
     textContainer: {
       fontWeight: "600",
       fontSize: "large",
+      color: props.href ? undefined : "rgb(50, 49, 48)",
     },
     label: {
       margin: 0,
@@ -35,7 +36,13 @@ export default function TopLink(props: PropsWithChildren<TopLinkProps>) {
   };
 
   return (
-    <ActionButton styles={styles} iconProps={icon} target="_blank" {...props}>
+    <ActionButton
+      styles={styles}
+      target="_blank"
+      iconProps={props.href ? icon : undefined}
+      disabled={props.href ? false : true}
+      {...props}
+    >
       {props.children}
     </ActionButton>
   );

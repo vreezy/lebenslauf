@@ -1,9 +1,9 @@
 // Components
 import { Stack, StackItem, Text } from "@fluentui/react";
 import Top from "./Top";
-import DateField from "./DateField";
 import List from "./List";
 import TopLink from "./TopLink";
+import DateBlock from "./DateBlock";
 
 // Utils
 import { v4 as uuidv4 } from "uuid";
@@ -49,17 +49,10 @@ export default function Education() {
                           </TopLink>
                         </StackItem>
                         <StackItem>
-                          <Text block>
-                            <DateField
-                              dateString={education.startDate}
-                              type="start"
-                            />
-                            {" - "}
-                            <DateField
-                              dateString={education.endDate}
-                              type="end"
-                            />
-                          </Text>
+                          <DateBlock
+                            startDate={education.startDate}
+                            endDate={education.endDate}
+                          />
                         </StackItem>
                       </Stack>
                     </StackItem>
@@ -67,7 +60,6 @@ export default function Education() {
                   <section>
                     <StackItem>
                       <Text block>{education.studyType}</Text>
-                      <Text block>{education.area}</Text>
                     </StackItem>
                   </section>
                   <section>
