@@ -14,39 +14,36 @@ import Top from "./Top";
 import DateField from "./DateField";
 import List from "./List";
 
-export default function Work() {
+export default function Education() {
   const resume = useSiteStore((state) => state.resume, shallow);
 
-  if (!resume.work) {
+  if (!resume.education) {
     return null;
   }
- 
+
   return (
     <Stack tokens={containerStackTokens}>
-      <Top>Berufserfahrung</Top>
-      {resume.work.map((work) => {
+      <StackItem>
+        <Top>Ausbildung</Top>
+      </StackItem>
+
+      {resume.education.map((education) => {
         return (
           <StackItem key={uuidv4()}>
             <Stack tokens={containerStackTokens}>
               <StackItem>
                 <Text block>
-                  <Link href={work.url}>{work.name}</Link>{" "}
-                  <DateField dateString={work.startDate} type="start"/>
+                  <Link href={education.url}>{education.institution}</Link>{" "}
+                  <DateField dateString={education.startDate} type="start" />
                   {" - "}
-                  <DateField dateString={work.endDate} type="end"/>
+                  <DateField dateString={education.endDate} type="end" />
                 </Text>
-                <Text block>{work.position}</Text>
-                <Text block>{work.location}</Text>
+                <Text block>{education.studyType}</Text>
+                <Text block>{education.area}</Text>
               </StackItem>
 
               <StackItem>
-                <Text block>{work.summary}</Text>
-                <Text block>{work.description}</Text>
-              </StackItem>
-
-              <StackItem>
-                <List>{work.highlights}</List>
-     
+                <List>{education.courses}</List>
               </StackItem>
             </Stack>
           </StackItem>

@@ -11,6 +11,7 @@ import { shallow } from "zustand/shallow";
 
 // Styles
 import { containerStackTokens } from "@/styles/styles";
+import Top from "./Top";
 
 export default function Skills() {
   const resume = useSiteStore((state) => state.resume, shallow);
@@ -21,6 +22,10 @@ export default function Skills() {
 
   return (
     <Stack tokens={containerStackTokens}>
+      <StackItem>
+        <Top>Soft Skills</Top>
+      </StackItem>
+      
       {resume.skills.map((skill) => {
         return (
           <StackItem key={uuidv4()}>

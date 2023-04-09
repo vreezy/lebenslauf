@@ -11,6 +11,7 @@ import { containerStackTokens } from "@/styles/styles";
 // Stores
 import useSiteStore from "@/stores/site";
 import { shallow } from "zustand/shallow";
+import Top from "./Top";
 
 export default function Interests() {
   const resume = useSiteStore((state) => state.resume, shallow);
@@ -21,6 +22,9 @@ export default function Interests() {
 
   return (
     <Stack tokens={containerStackTokens}>
+      <StackItem>
+        <Top>Interessen</Top>
+      </StackItem>
       {resume.interests.map((interest) => {
         return (
           <StackItem key={uuidv4()}>

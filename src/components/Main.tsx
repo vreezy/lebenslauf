@@ -21,9 +21,10 @@ import { shallow } from "zustand/shallow";
 // import styles from '@/styles/Home.module.css'
 import "bootstrap/dist/css/bootstrap.css";
 import { containerStackTokens } from "@/styles/styles";
+import Volunteer from "./Volunteer";
+import Education from "./Education";
 
 export default function Main() {
-  const resume = useSiteStore((state) => state.resume, shallow);
   const isLoading = useSiteStore((state) => state.isLoading, shallow);
   const isError = useSiteStore((state) => state.isError, shallow);
 
@@ -62,8 +63,8 @@ export default function Main() {
           <StackItem grow={3}>
             <Summary />
             <Work />
-            {/* TODO: volunteer */}
-            {/* TODO: education */}
+            <Volunteer />
+            <Education />
           </StackItem>
         </Stack>
       </Container>
@@ -77,9 +78,7 @@ export default function Main() {
         priority
       /> */}
 
-        <div>
-          <pre>{JSON.stringify(resume, null, 2)}</pre>
-        </div>
+
       </section>
     </main>
   );

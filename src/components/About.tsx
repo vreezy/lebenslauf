@@ -13,6 +13,7 @@ import { containerStackTokens } from "@/styles/styles";
 
 // Interfaces
 import { ResumeSchema } from "@/models/ResumeSchema";
+import Top from "./Top";
 
 export default function About() {
   const resume = useSiteStore((state) => state.resume, shallow);
@@ -39,7 +40,7 @@ export default function About() {
     <section>
       <Stack tokens={containerStackTokens}>
         <StackItem>
-          <h3>Über mich</h3>
+          <Top>Über mich</Top>
         </StackItem>
 
         {validateAdress(resume) && (

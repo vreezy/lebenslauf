@@ -4,6 +4,8 @@ import "bootstrap/dist/css/bootstrap.css";
 import Navigation from "@/components/Navigation";
 import Main from "@/components/Main";
 import Data from "@/components/Data";
+import Dev from "@/components/Dev";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   
@@ -20,6 +22,10 @@ export default function Home() {
       <Main />
       
       <Data />
+
+      <Dev />
+
+      <Footer />
     </>
   );
 }

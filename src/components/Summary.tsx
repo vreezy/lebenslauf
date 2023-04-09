@@ -7,6 +7,7 @@ import { shallow } from "zustand/shallow";
 
 // Styles
 import { containerStackTokens } from "@/styles/styles";
+import Top from "./Top";
 
 export default function Summary() {
   const resume = useSiteStore((state) => state.resume, shallow);
@@ -17,6 +18,9 @@ export default function Summary() {
 
   return (
     <Stack tokens={containerStackTokens}>
+      <StackItem>
+        <Top>Zusammenfassung</Top>
+      </StackItem>
       <StackItem>
         <Text block>{resume.basics.summary}</Text>
       </StackItem>

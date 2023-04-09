@@ -20,7 +20,7 @@ export default function Badges(props: PropsWithChildren) {
       );
     }
 
-    return <Badge key={uuidv4()}>{props.children}</Badge>;
+    return <><Badge key={uuidv4()}>{props.children}</Badge></>;
   }
 
   return null;
