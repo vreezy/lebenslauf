@@ -17,13 +17,17 @@ export default function Summary() {
   }
 
   return (
-    <Stack tokens={containerStackTokens}>
-      <StackItem>
-        <Top>Zusammenfassung</Top>
-      </StackItem>
-      <StackItem>
-        <Text block>{resume.basics.summary}</Text>
-      </StackItem>
-    </Stack>
+    <article>
+      <Stack tokens={containerStackTokens}>
+        <StackItem>
+          <Top>Zusammenfassung</Top>
+        </StackItem>
+        <StackItem>
+          <section>
+            <Text block>{resume.basics.summary}</Text>
+          </section>
+        </StackItem>
+      </Stack>
+    </article>
   );
 }

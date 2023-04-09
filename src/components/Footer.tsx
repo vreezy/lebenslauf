@@ -1,11 +1,11 @@
 export default function Footer() {
   return (
-    <div>
+    <footer>
       <br/>
       <br/>
       FOOTER
       <br/>
       <br/>
-    </div>
+    </footer>
   )
 }

@@ -26,27 +26,45 @@ export default function Volunteer() {
       <Top>Ehrenamtliche Erfahrung</Top>
       {resume.volunteer.map((volunteer) => {
         return (
-          <StackItem key={uuidv4()}>
-            <Stack tokens={containerStackTokens}>
-              <StackItem>
-                <Text block>
-                  <Link href={volunteer.url}>{volunteer.organization}</Link>{" "}
-                  <DateField dateString={volunteer.startDate} type="start" />
-                  {" - "}
-                  <DateField dateString={volunteer.endDate} type="end" />
-                </Text>
-                <Text block>{volunteer.position}</Text>
-              </StackItem>
+          <section key={uuidv4()}>
+            <StackItem>
+              <Stack tokens={containerStackTokens}>
+                <StackItem>
+                  <Stack horizontal horizontalAlign="space-between">
+                    <StackItem>
+                      <header>
+                        <Text block>
+                          <Link href={volunteer.url}>
+                            {volunteer.organization}
+                          </Link>
+                        </Text>
+                      </header>
+                    </StackItem>
+                    <StackItem>
+                      <Text block>
+                        <DateField
+                          dateString={volunteer.startDate}
+                          type="start"
+                        />
+                        {" - "}
+                        <DateField dateString={volunteer.endDate} type="end" />
+                      </Text>
+                    </StackItem>
+                  </Stack>
 
-              <StackItem>
-                <Text block>{volunteer.summary}</Text>
-              </StackItem>
+                  <Text block>{volunteer.position}</Text>
+                </StackItem>
 
-              <StackItem>
-                <List>{volunteer.highlights}</List>
-              </StackItem>
-            </Stack>
-          </StackItem>
+                <StackItem>
+                  <Text block>{volunteer.summary}</Text>
+                </StackItem>
+
+                <StackItem>
+                  <List>{volunteer.highlights}</List>
+                </StackItem>
+              </Stack>
+            </StackItem>
+          </section>
         );
       })}
     </Stack>

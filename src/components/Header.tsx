@@ -9,9 +9,9 @@ export default function Header() {
   }
 
   return (
-    <>
+    <header>
       <h1>{resume.basics.name}</h1>
       <small>{resume.basics.label}</small>
-    </>
+    </header>
   );
 }

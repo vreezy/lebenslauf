@@ -1,5 +1,5 @@
 // Components
-import { Stack, StackItem } from "@fluentui/react";
+import { IStackTokens, Separator, Stack, StackItem } from "@fluentui/react";
 import { Container } from "react-bootstrap";
 import Header from "@/components/Header";
 import About from "@/components/About";
@@ -48,23 +48,29 @@ export default function Main() {
     );
   }
 
+  const mainTokens: IStackTokens = {
+    childrenGap: 20,
+  }
+
   return (
     <main>
       <Container>
         <Header />
-        <Stack horizontal tokens={containerStackTokens}>
-          <StackItem grow={1} >
+        <Stack horizontal tokens={mainTokens}>
+          <StackItem grow={2} tokens={mainTokens}>
             <About />
             <Certificates />
             <Skills />
             <Languages />
             <Interests />
           </StackItem>
-          <StackItem grow={3}>
-            <Summary />
-            <Work />
-            <Volunteer />
-            <Education />
+          <StackItem grow={3} style={{marginLeft: "2rem"}} >
+            <Stack tokens={mainTokens}>
+              <Summary />
+              <Work />
+              <Volunteer />
+              <Education />
+            </Stack>    
           </StackItem>
         </Stack>
       </Container>

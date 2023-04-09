@@ -17,6 +17,7 @@ export default function Certificates() {
   }
 
   return (
+    <section>
     <Stack tokens={containerStackTokens}>
       <StackItem>
         <Top>Zertifikate</Top>
@@ -30,5 +31,6 @@ export default function Certificates() {
         })}
 
     </Stack>
+    </section>
   );
 }
