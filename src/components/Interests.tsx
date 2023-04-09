@@ -23,7 +23,7 @@ export default function Interests() {
   return (
     <Stack tokens={containerStackTokens}>
       <StackItem>
-        <Top>Interessen</Top>
+        <Top iconName="Game">Interessen</Top>
       </StackItem>
       {resume.interests.map((interest) => {
         return (

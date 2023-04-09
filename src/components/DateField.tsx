@@ -12,7 +12,7 @@ export default function DateField(props: DateStringProps) {
   }
 
   if (props.type === "end") {
-    return <>Bis heute</>
+    return <>heute</>
   }
 
   return null;

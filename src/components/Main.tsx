@@ -57,12 +57,14 @@ export default function Main() {
       <Container>
         <Header />
         <Stack horizontal tokens={mainTokens}>
-          <StackItem grow={2} tokens={mainTokens}>
-            <About />
-            <Certificates />
-            <Skills />
-            <Languages />
-            <Interests />
+          <StackItem grow={2}>
+            <Stack tokens={mainTokens}>
+              <About />
+              <Certificates />
+              <Skills />
+              <Languages />
+              <Interests />
+            </Stack>  
           </StackItem>
           <StackItem grow={3} style={{marginLeft: "2rem"}} >
             <Stack tokens={mainTokens}>

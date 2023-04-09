@@ -13,6 +13,7 @@ import { shallow } from "zustand/shallow";
 import Top from "./Top";
 import DateField from "./DateField";
 import List from "./List";
+import TopLink from "./TopLink";
 
 export default function Volunteer() {
   const resume = useSiteStore((state) => state.resume, shallow);
@@ -22,51 +23,65 @@ export default function Volunteer() {
   }
 
   return (
-    <Stack tokens={containerStackTokens}>
-      <Top>Ehrenamtliche Erfahrung</Top>
-      {resume.volunteer.map((volunteer) => {
-        return (
-          <section key={uuidv4()}>
-            <StackItem>
-              <Stack tokens={containerStackTokens}>
-                <StackItem>
-                  <Stack horizontal horizontalAlign="space-between">
+    <section>
+      <Stack tokens={containerStackTokens}>
+        <Top iconName="Heart">Ehrenamtliche Erfahrung</Top>
+        {resume.volunteer.map((volunteer) => {
+          return (
+            <article key={uuidv4()}>
+              <StackItem style={{marginBottom: "25px"}}>
+                <Stack tokens={containerStackTokens}>
+                  <header>
                     <StackItem>
-                      <header>
-                        <Text block>
-                          <Link href={volunteer.url}>
-                            {volunteer.organization}
-                          </Link>
-                        </Text>
-                      </header>
+                      <Stack horizontal horizontalAlign="space-between">
+                        <StackItem>
+                  
+                            <TopLink
+                              href={volunteer.url}
+                              title={volunteer.organization}
+                              aria-label={volunteer.organization}
+                            >
+                              {volunteer.organization}
+                            </TopLink>
+                 
+                        </StackItem>
+                        <StackItem>
+                          <Text block>
+                            <DateField
+                              dateString={volunteer.startDate}
+                              type="start"
+                            />
+                            {" - "}
+                            <DateField
+                              dateString={volunteer.endDate}
+                              type="end"
+                            />
+                          </Text>
+                        </StackItem>
+                      </Stack>
                     </StackItem>
+                  </header>
+                  <section>
                     <StackItem>
-                      <Text block>
-                        <DateField
-                          dateString={volunteer.startDate}
-                          type="start"
-                        />
-                        {" - "}
-                        <DateField dateString={volunteer.endDate} type="end" />
-                      </Text>
+                      <Text block>{volunteer.position}</Text>
                     </StackItem>
-                  </Stack>
-
-                  <Text block>{volunteer.position}</Text>
-                </StackItem>
-
-                <StackItem>
-                  <Text block>{volunteer.summary}</Text>
-                </StackItem>
-
-                <StackItem>
-                  <List>{volunteer.highlights}</List>
-                </StackItem>
-              </Stack>
-            </StackItem>
-          </section>
-        );
-      })}
-    </Stack>
+                  </section>
+                  <section>
+                    <StackItem>
+                      <Text block>{volunteer.summary}</Text>
+                    </StackItem>
+                  </section>
+                  <section>
+                    <StackItem>
+                      <List>{volunteer.highlights}</List>
+                    </StackItem>
+                  </section>
+                </Stack>
+              </StackItem>
+            </article>
+          );
+        })}
+      </Stack>
+    </section>
   );
 }

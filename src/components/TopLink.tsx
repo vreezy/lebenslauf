@@ -21,10 +21,14 @@ export default function TopLink(props: PropsWithChildren<TopLinkProps>) {
     },
     root: {
       padding: 0,
+      height: "unset"
     },
     flexContainer: {
       flexDirection: "row-reverse",
     },
+    icon: {
+      fontSize: "smaller"
+    }
   };
 
   return (

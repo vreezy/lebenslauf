@@ -1,10 +1,15 @@
 // Interfaces
+import { FontIcon, IFontIconProps } from "@fluentui/react";
 import { PropsWithChildren } from "react";
 
-export default function Top(props: PropsWithChildren) {
+interface TopProps extends IFontIconProps {
+  
+}
+
+export default function Top(props: PropsWithChildren<TopProps>) {
   if (!props.children) {
     return null;
   }
 
-  return <h2>{props.children}</h2>;
+  return <h4>{props.iconName && <><FontIcon aria-label={props.iconName} iconName={props.iconName} />&nbsp;</>}{props.children}</h4>;
 }

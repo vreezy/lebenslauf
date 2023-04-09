@@ -23,7 +23,7 @@ export default function Skills() {
   return (
     <Stack tokens={containerStackTokens}>
       <StackItem>
-        <Top>Soft Skills</Top>
+        <Top iconName="CheckList">Soft Skills</Top>
       </StackItem>
 
       {resume.skills.map((skill) => {
@@ -32,10 +32,6 @@ export default function Skills() {
             <Label>
               {skill.name}
             </Label>
-
-            <Text block>
-              {skill.level}
-            </Text>
 
             <Badges>{skill.keywords}</Badges>
           </StackItem>

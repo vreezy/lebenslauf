@@ -20,7 +20,7 @@ export default function Summary() {
     <article>
       <Stack tokens={containerStackTokens}>
         <StackItem>
-          <Top>Zusammenfassung</Top>
+          <Top iconName="TextDocumentShared">Zusammenfassung</Top>
         </StackItem>
         <StackItem>
           <section>

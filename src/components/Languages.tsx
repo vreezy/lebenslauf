@@ -22,7 +22,7 @@ export default function Languages() {
   return (
     <Stack tokens={containerStackTokens}>
       <StackItem>
-        <Top>Sprachen</Top>
+        <Top iconName="Chat">Sprachen</Top>
       </StackItem>
 
       {resume.languages.map((language) => {

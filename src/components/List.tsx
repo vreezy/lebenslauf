@@ -9,7 +9,7 @@ export default function List(props: PropsWithChildren) {
   if (props.children) {
     if (Array.isArray(props.children)) {
       return (
-        <ul className="list-group">
+        <ul>
           {props.children.map((child) => (
             <ListItem key={uuidv4()}>{child}</ListItem>
           ))}

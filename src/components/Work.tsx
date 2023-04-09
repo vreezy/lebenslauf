@@ -27,13 +27,13 @@ export default function Work() {
       <Stack tokens={containerStackTokens}>
         <header>
           <StackItem>
-            <Top>Berufserfahrung</Top>
+            <Top iconName="Work">Berufserfahrung</Top>
           </StackItem>
         </header>
         {resume.work.map((work) => {
           return (
             <article key={uuidv4()}>
-              <StackItem style={{marginBottom: "14px"}}>
+              <StackItem style={{marginBottom: "25px"}}>
                 <Stack tokens={containerStackTokens}>
                   <header>
                     <StackItem>
@@ -49,8 +49,7 @@ export default function Work() {
                             />
                             {" - "}
                             <DateField dateString={work.endDate} type="end" />
-                          </Text>
-                          <Text block>{work.location}</Text>
+                          </Text>              
                         </StackItem>
                       </Stack>
                     </StackItem>
@@ -59,7 +58,7 @@ export default function Work() {
                     <StackItem>
                       <Stack horizontal horizontalAlign="space-between">
                         <StackItem>
-                          <Text block>{work.position}</Text>
+                          <Text block>{work.position} in {work.location}</Text>
                         </StackItem>
                         <StackItem>
                    
