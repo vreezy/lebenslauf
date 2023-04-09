@@ -12,7 +12,7 @@ export default function Badges(props: PropsWithChildren) {
   if (props.children) {
     if (Array.isArray(props.children)) {
       return (
-        <Stack tokens={{ childrenGap: 3 }} style={{marginTop: "5px"}} wrap>
+        <Stack tokens={{ childrenGap: 3 }} style={{ marginTop: "5px" }} wrap>
           {props.children.map((child) => {
             return <Badge key={uuidv4()}>{child}</Badge>;
           })}
@@ -20,9 +20,7 @@ export default function Badges(props: PropsWithChildren) {
       );
     }
 
-    return (
-      <Badges>{[props.children]}</Badges>
-    );
+    return <Badges>{[props.children]}</Badges>;
   }
 
   return null;

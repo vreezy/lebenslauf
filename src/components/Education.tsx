@@ -1,5 +1,9 @@
 // Components
-import { Link, Stack, StackItem, Text } from "@fluentui/react";
+import { Stack, StackItem, Text } from "@fluentui/react";
+import Top from "./Top";
+import DateField from "./DateField";
+import List from "./List";
+import TopLink from "./TopLink";
 
 // Utils
 import { v4 as uuidv4 } from "uuid";
@@ -10,10 +14,6 @@ import { containerStackTokens } from "@/styles/styles";
 // Stores
 import useSiteStore from "@/stores/site";
 import { shallow } from "zustand/shallow";
-import Top from "./Top";
-import DateField from "./DateField";
-import List from "./List";
-import TopLink from "./TopLink";
 
 export default function Education() {
   const resume = useSiteStore((state) => state.resume, shallow);
@@ -25,14 +25,16 @@ export default function Education() {
   return (
     <section>
       <Stack tokens={containerStackTokens}>
-        <StackItem>
-          <Top iconName="Education">Ausbildung</Top>
-        </StackItem>
+        <header>
+          <StackItem>
+            <Top iconName="Education">Ausbildung</Top>
+          </StackItem>
+        </header>
 
         {resume.education.map((education) => {
           return (
             <article key={uuidv4()}>
-              <StackItem style={{marginBottom: "25px"}}>
+              <StackItem style={{ marginBottom: "25px" }}>
                 <Stack tokens={containerStackTokens}>
                   <header>
                     <StackItem>

@@ -1,5 +1,6 @@
 // Components
 import { Stack, StackItem, Text } from "@fluentui/react";
+import Top from "./Top";
 
 // Stores
 import useSiteStore from "@/stores/site";
@@ -7,7 +8,6 @@ import { shallow } from "zustand/shallow";
 
 // Styles
 import { containerStackTokens } from "@/styles/styles";
-import Top from "./Top";
 
 export default function Summary() {
   const resume = useSiteStore((state) => state.resume, shallow);
@@ -19,14 +19,16 @@ export default function Summary() {
   return (
     <article>
       <Stack tokens={containerStackTokens}>
-        <StackItem>
-          <Top iconName="TextDocumentShared">Zusammenfassung</Top>
-        </StackItem>
-        <StackItem>
-          <section>
+        <header>
+          <StackItem>
+            <Top iconName="TextDocumentShared">Zusammenfassung</Top>
+          </StackItem>
+        </header>
+        <section>
+          <StackItem>
             <Text block>{resume.basics.summary}</Text>
-          </section>
-        </StackItem>
+          </StackItem>
+        </section>
       </Stack>
     </article>
   );

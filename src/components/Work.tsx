@@ -3,6 +3,7 @@ import { Stack, StackItem, Text } from "@fluentui/react";
 import Top from "./Top";
 import DateField from "./DateField";
 import List from "./List";
+import TopLink from "./TopLink";
 
 // Utils
 import { v4 as uuidv4 } from "uuid";
@@ -13,7 +14,6 @@ import { containerStackTokens } from "@/styles/styles";
 // Stores
 import useSiteStore from "@/stores/site";
 import { shallow } from "zustand/shallow";
-import TopLink from "./TopLink";
 
 export default function Work() {
   const resume = useSiteStore((state) => state.resume, shallow);
@@ -33,23 +33,29 @@ export default function Work() {
         {resume.work.map((work) => {
           return (
             <article key={uuidv4()}>
-              <StackItem style={{marginBottom: "25px"}}>
+              <StackItem style={{ marginBottom: "25px" }}>
                 <Stack tokens={containerStackTokens}>
                   <header>
                     <StackItem>
                       <Stack horizontal horizontalAlign="space-between">
                         <StackItem>
-                          <TopLink href={work.url} title={work.name} aria-label={work.name}>{work.name}</TopLink>
+                          <TopLink
+                            href={work.url}
+                            title={work.name}
+                            aria-label={work.name}
+                          >
+                            {work.name}
+                          </TopLink>
                         </StackItem>
-                        <StackItem >
-                          <Text block>
+                        <StackItem>
+                          <Text block style={{ fontStyle: "italic" }}>
                             <DateField
                               dateString={work.startDate}
                               type="start"
                             />
                             {" - "}
                             <DateField dateString={work.endDate} type="end" />
-                          </Text>              
+                          </Text>
                         </StackItem>
                       </Stack>
                     </StackItem>
@@ -58,11 +64,11 @@ export default function Work() {
                     <StackItem>
                       <Stack horizontal horizontalAlign="space-between">
                         <StackItem>
-                          <Text block>{work.position} in {work.location}</Text>
+                          <Text block>
+                            {work.position} in {work.location}
+                          </Text>
                         </StackItem>
-                        <StackItem>
-                   
-                        </StackItem>
+                        <StackItem></StackItem>
                       </Stack>
                     </StackItem>
                   </section>

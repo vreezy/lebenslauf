@@ -1,6 +1,7 @@
 // Components
 import { Label, Stack, StackItem, Text } from "@fluentui/react";
 import Badges from "./Badges";
+import Top from "./Top";
 
 // Utils
 import { v4 as uuidv4 } from "uuid";
@@ -11,7 +12,6 @@ import { shallow } from "zustand/shallow";
 
 // Styles
 import { containerStackTokens } from "@/styles/styles";
-import Top from "./Top";
 
 export default function Skills() {
   const resume = useSiteStore((state) => state.resume, shallow);
@@ -21,22 +21,29 @@ export default function Skills() {
   }
 
   return (
-    <Stack tokens={containerStackTokens}>
-      <StackItem>
-        <Top iconName="CheckList">Soft Skills</Top>
-      </StackItem>
-
-      {resume.skills.map((skill) => {
-        return (
-          <StackItem key={uuidv4()}>
-            <Label>
-              {skill.name}
-            </Label>
-
-            <Badges>{skill.keywords}</Badges>
+    <article>
+      <Stack tokens={containerStackTokens}>
+        <header>
+          <StackItem>
+            <Top iconName="CheckList">Soft Skills</Top>
           </StackItem>
-        );
-      })}
-    </Stack>
+        </header>
+
+        {resume.skills.map((skill) => {
+          return (
+            <section key={uuidv4()}>
+              <StackItem>
+                <header>
+                  <Label>{skill.name}</Label>
+                </header>
+                <section>
+                  <Badges>{skill.keywords}</Badges>
+                </section>
+              </StackItem>
+            </section>
+          );
+        })}
+      </Stack>
+    </article>
   );
 }

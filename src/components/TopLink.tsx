@@ -1,9 +1,12 @@
+// Components
 import {
   IButtonProps,
   IIconProps,
   ActionButton,
   IButtonStyles,
 } from "@fluentui/react";
+
+// Interfaces
 import { PropsWithChildren } from "react";
 
 interface TopLinkProps extends IButtonProps {}
@@ -21,14 +24,14 @@ export default function TopLink(props: PropsWithChildren<TopLinkProps>) {
     },
     root: {
       padding: 0,
-      height: "unset"
+      height: "unset",
     },
     flexContainer: {
       flexDirection: "row-reverse",
     },
     icon: {
-      fontSize: "smaller"
-    }
+      fontSize: "smaller",
+    },
   };
 
   return (

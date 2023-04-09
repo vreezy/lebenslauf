@@ -1,9 +1,9 @@
+// Utils
 import { isIsoDate } from "@/utils/isISODate";
-
 
 interface DateStringProps {
   dateString: string | undefined;
-  type: "start" | "end"
+  type: "start" | "end";
 }
 
 export default function DateField(props: DateStringProps) {
@@ -12,10 +12,8 @@ export default function DateField(props: DateStringProps) {
   }
 
   if (props.type === "end") {
-    return <>heute</>
+    return <>heute</>;
   }
 
   return null;
 }
-
-

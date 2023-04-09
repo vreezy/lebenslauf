@@ -1,6 +1,7 @@
 // Components
-import { Stack, StackItem, Text } from "@fluentui/react";
+import { Label, Stack, StackItem, Text } from "@fluentui/react";
 import Badges from "./Badges";
+import Top from "./Top";
 
 // Utils
 import { v4 as uuidv4 } from "uuid";
@@ -11,7 +12,6 @@ import { containerStackTokens } from "@/styles/styles";
 // Stores
 import useSiteStore from "@/stores/site";
 import { shallow } from "zustand/shallow";
-import Top from "./Top";
 
 export default function Interests() {
   const resume = useSiteStore((state) => state.resume, shallow);
@@ -21,18 +21,28 @@ export default function Interests() {
   }
 
   return (
-    <Stack tokens={containerStackTokens}>
-      <StackItem>
-        <Top iconName="Game">Interessen</Top>
-      </StackItem>
-      {resume.interests.map((interest) => {
-        return (
-          <StackItem key={uuidv4()}>
-            <Text block>{interest.name}</Text>
-            <Badges>{interest.keywords}</Badges>
+    <article>
+      <Stack tokens={containerStackTokens}>
+        <header>
+          <StackItem>
+            <Top iconName="Game">Interessen</Top>
           </StackItem>
-        );
-      })}
-    </Stack>
+        </header>
+        {resume.interests.map((interest) => {
+          return (
+            <section key={uuidv4()}>
+              <StackItem>
+                <header>
+                  <Label>{interest.name}</Label>
+                </header>
+                <section>
+                  <Badges>{interest.keywords}</Badges>
+                </section>
+              </StackItem>
+            </section>
+          );
+        })}
+      </Stack>
+    </article>
   );
 }

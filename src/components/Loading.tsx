@@ -1,4 +1,4 @@
-// Interfaces
+// Components
 import { Shimmer } from "@fluentui/react";
 
 export default function Data() {

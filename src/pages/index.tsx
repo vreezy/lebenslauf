@@ -7,11 +7,9 @@ import Data from "@/components/Data";
 import Dev from "@/components/Dev";
 import Footer from "@/components/Footer";
 
-import { initializeIcons } from '@fluentui/font-icons-mdl2';
-
+import { initializeIcons } from "@fluentui/font-icons-mdl2";
 
 export default function Home() {
-  
   initializeIcons();
   return (
     <>
@@ -21,16 +19,15 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
- 
-        <Navigation />
-        <Main />
-        
-        <Data />
 
-        <Dev />
+      <Navigation />
+      <Main />
 
-        <Footer />
-   
+      <Data />
+
+      <Dev />
+
+      <Footer />
     </>
   );
 }

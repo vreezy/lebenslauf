@@ -1,9 +1,9 @@
+// Stores
 import useSiteStore from "@/stores/site";
 import { shallow } from "zustand/shallow";
 
 export default function Dev() {
   const resume = useSiteStore((state) => state.resume, shallow);
-
 
   let dev = null;
   if (typeof window !== "undefined") {
@@ -11,8 +11,6 @@ export default function Dev() {
     const urlParams = new URLSearchParams(queryString);
     dev = urlParams.get("dev");
   }
-
-
 
   if (dev) {
     return (

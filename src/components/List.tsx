@@ -1,9 +1,11 @@
-import { isIsoDate } from "@/utils/isISODate";
-import { PropsWithChildren } from "react";
+// Components
 import ListItem from "./ListItem";
 
 // Utils
 import { v4 as uuidv4 } from "uuid";
+
+// Interfaces
+import { PropsWithChildren } from "react";
 
 export default function List(props: PropsWithChildren) {
   if (props.children) {
@@ -17,9 +19,7 @@ export default function List(props: PropsWithChildren) {
       );
     }
 
-    return (
-      <List>{[props.children]}</List>
-    );
+    return <List>{[props.children]}</List>;
   }
 
   return null;
