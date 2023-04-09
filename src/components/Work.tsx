@@ -74,8 +74,8 @@ export default function Work() {
                   </section>
                   <section>
                     <StackItem>
-                      <Text block>{work.summary}</Text>
                       <Text block>{work.description}</Text>
+                      <Text block>{work.summary}</Text>                      
                     </StackItem>
                   </section>
                   <section>
