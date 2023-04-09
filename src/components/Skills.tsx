@@ -1,5 +1,5 @@
 // Components
-import { Stack, StackItem, Text } from "@fluentui/react";
+import { Label, Stack, StackItem, Text } from "@fluentui/react";
 import Badges from "./Badges";
 
 // Utils
@@ -25,13 +25,18 @@ export default function Skills() {
       <StackItem>
         <Top>Soft Skills</Top>
       </StackItem>
-      
+
       {resume.skills.map((skill) => {
         return (
           <StackItem key={uuidv4()}>
+            <Label>
+              {skill.name}
+            </Label>
+
             <Text block>
-              {skill.name} - {skill.level}
+              {skill.level}
             </Text>
+
             <Badges>{skill.keywords}</Badges>
           </StackItem>
         );

@@ -18,9 +18,7 @@ export default function List(props: PropsWithChildren) {
     }
 
     return (
-      <ul className="list-group">
-        <ListItem key={uuidv4()}>{props.children}</ListItem>
-      </ul>
+      <List>{[props.children]}</List>
     );
   }
 
