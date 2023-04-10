@@ -4,6 +4,8 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 
+import * as htmlToImage from 'html-to-image';
+
 import { jsPDF } from "jspdf";
 
 // Stores
@@ -14,7 +16,7 @@ function Navigation() {
   const pdfRef = useSiteStore((state) => state.pdfRef, shallow);
 
   function generatePDF() {
-    console.log(pdfRef)
+    
     if (pdfRef?.current) {
       const doc = new jsPDF({
         orientation: "p",
@@ -22,14 +24,71 @@ function Navigation() {
         format: "a4",
       });
 
+      const pdfWidth = doc.internal.pageSize.getWidth();
+      const pdfHeight = doc.internal.pageSize.getHeight();
+
+      const PIXEL_IN_MM = 0.2645833333
+
       const content = pdfRef.current;
 
+      htmlToImage.toPng(content)
+      .then(function (dataUrl: any) {
+        // var img = new Image();
+        // img.src = dataUrl;
+        console.log(dataUrl)
 
-        doc.html(content, {
-          callback: function (doc) {
-              doc.save('lebenslauf.pdf');
-          }
+ 
+        const img = new Image();
+        img.src = dataUrl;
+        const div = document.createElement("div");
+
+        div.id = "imageDiv";
+        div.appendChild(img)
+        document.body.appendChild(div);
+
+
+        const imgWidth = img.offsetWidth;
+        const imgHeight = img.offsetHeight;
+
+        console.log("YYYY", pdfWidth, pdfHeight)
+        console.log("XXX", imgWidth , imgHeight )
+
+
+        const scale = 100 / pdfWidth * imgWidth
+        const width = pdfWidth
+        const height = imgHeight / scale * 100
+
+        console.log("ZZZ", scale, width, height)
+        const quality = 1 // Higher the better but larger file
+        doc.addImage(dataUrl, 'PNG', 0, 0, width, height);
+        let heightLeft = height - pdfHeight
+        let position = 0
+
+        while (heightLeft >= 0) {
+          position += heightLeft - height; // top padding for other pages
+          doc.addPage();
+          doc.addImage(dataUrl, 'PNG', 0, position, width, height);
+          heightLeft -= pdfHeight;
+        }
+
+        doc.save('lebenslauf.pdf');
+  
+
+        // doc.html(div, {
+          
+
+        //   callback: (doc => doc.save('lebenslauf.pdf'))
+        // })
+         
+        // delete image
+
+        
+      })
+      .catch(function (error:any ) {
+        console.error('oops, something went wrong!', error);
       });
+
+
 
 
     }

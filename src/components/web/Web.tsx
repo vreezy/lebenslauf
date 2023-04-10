@@ -60,9 +60,9 @@ export default function Web() {
     <main
       className="container"
       style={{ maxWidth: "900px", marginTop: "20px" }}
-      ref={pdfRef}
+      
     >
-      <div className="row">
+      <div className="row" >
         <div className="col-lg-4 col-md-4 col-sm-12">
           <Stack tokens={mainTokens}>
             <About />
@@ -74,6 +74,23 @@ export default function Web() {
         </div>
         <div className="col-lg-8 col-md-8 col-sm-12">
           <Stack tokens={mainTokens}>
+            <Summary />
+            <Work />
+            <Volunteer />
+            <Education />
+          </Stack>
+        </div>
+      </div>
+
+      {/* // PRINT */}
+      <div className="row" style={{width: "210mm" }} ref={pdfRef}>
+        <div className="col" style={{padding: "20mm"}}>
+          <Stack tokens={mainTokens}>
+            <About />
+            <Certificates />
+            <Skills />
+            <Languages />
+            <Interests />
             <Summary />
             <Work />
             <Volunteer />
