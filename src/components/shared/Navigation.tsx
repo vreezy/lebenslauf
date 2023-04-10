@@ -1,39 +1,9 @@
 // Components
-import { Button } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 
-import { jsPDF } from "jspdf";
-
-// Stores
-import useSiteStore from "@/stores/site";
-import { shallow } from "zustand/shallow";
-
 function Navigation() {
-  const pdfRef = useSiteStore((state) => state.pdfRef, shallow);
-
-  function generatePDF() {
-    console.log(pdfRef)
-    if (pdfRef?.current) {
-      const doc = new jsPDF({
-        orientation: "p",
-        unit: "px",
-        format: "a4",
-      });
-
-      const content = pdfRef.current;
-
-
-        doc.html(content, {
-          callback: function (doc) {
-              doc.save('lebenslauf.pdf');
-          }
-      });
-
-
-    }
-  }
 
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -62,7 +32,7 @@ function Navigation() {
             <Nav.Link eventKey={2} href="#memes">
               Dank memes
             </Nav.Link> */}
-            <Button variant="outline-success" onClick={generatePDF}>Download PDF</Button>
+            
           </Nav>
         </Navbar.Collapse>
       </Container>
