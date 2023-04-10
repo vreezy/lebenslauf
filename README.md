@@ -45,3 +45,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - add export as pdf with pdf.js +table plugin
 - add favIcon
 - add pwa mode
+- add tests

@@ -1,16 +1,24 @@
 import Head from "next/head";
 // import styles from '@/styles/Home.module.css'
 import "bootstrap/dist/css/bootstrap.css";
-import Navigation from "@/components/Navigation";
-import Main from "@/components/Main";
-import Data from "@/components/Data";
-import Dev from "@/components/Dev";
-import Footer from "@/components/Footer";
+import Navigation from "@/components/shared/Navigation";
+import Web from "@/components/web/Web";
+import Data from "@/components/shared/Data";
+import Dev from "@/components/shared/Dev";
+import Footer from "@/components/shared/Footer";
 
+// Utils
 import { initializeIcons } from "@fluentui/font-icons-mdl2";
+import { useRef } from "react";
+
+// Styles
+import "bootstrap/dist/css/bootstrap.css";
+
 
 export default function Home() {
   initializeIcons();
+
+  
   return (
     <>
       <Head>
@@ -21,7 +29,8 @@ export default function Home() {
       </Head>
 
       <Navigation />
-      <Main />
+
+      <Web/>
 
       <Data />
 

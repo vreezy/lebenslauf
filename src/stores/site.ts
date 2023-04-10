@@ -3,10 +3,12 @@ import { devtools } from "zustand/middleware";
 
 import { InitialSiteState, SiteState } from "./SiteState";
 
+
 const initialSiteState: InitialSiteState = {
    isLoading: true,
    isError: false,
-   resume: {}
+   resume: {},
+   pdfRef: null
 }
 
 const useSiteStore = create<SiteState>()(
@@ -16,6 +18,8 @@ const useSiteStore = create<SiteState>()(
       setLoading: (bool) => set(() => ({ isLoading: bool })),
       setError: (bool) => set(() => ({ isError: bool })),
       setResume: (resume) => set(() => ({ resume })),
+      setPdfRef: (pdfRef) => set(() => ({ pdfRef })),
+      
       reset: () => set({ ...initialSiteState }),
     }),
     {

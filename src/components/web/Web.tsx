@@ -1,10 +1,10 @@
 // Components
-import { IStackTokens, Stack, StackItem } from "@fluentui/react";
+import { IStackTokens, Stack} from "@fluentui/react";
 import { Container } from "react-bootstrap";
-import About from "@/components/About";
-import Certificates from "@/components/Certificates";
-import Skills from "@/components/Skills";
-import Loading from "./Loading";
+import About from "@/components/web/About";
+import Certificates from "@/components/web/Certificates";
+import Skills from "@/components/web/Skills";
+import Loading from "../shared/Loading";
 import Interests from "./Interests";
 import Languages from "./Languages";
 import Summary from "./Summary";
@@ -15,13 +15,24 @@ import Education from "./Education";
 // Stores
 import useSiteStore from "@/stores/site";
 import { shallow } from "zustand/shallow";
+import { useEffect, useRef } from "react";
 
-// Styles
-import "bootstrap/dist/css/bootstrap.css";
 
-export default function Main() {
+
+export default function Web() {
   const isLoading = useSiteStore((state) => state.isLoading, shallow);
   const isError = useSiteStore((state) => state.isError, shallow);
+  const setPdfRef = useSiteStore((state) => state.setPdfRef);
+
+  const pdfRef = useRef(null)
+  // Connect to the store on mount, disconnect on unmount, catch state-changes in a reference
+  useEffect(() => {
+  
+    
+    setPdfRef(pdfRef)
+    
+    
+ }, [pdfRef, setPdfRef])
 
   if (isError) {
     return (
@@ -49,6 +60,7 @@ export default function Main() {
     <main
       className="container"
       style={{ maxWidth: "900px", marginTop: "20px" }}
+      ref={pdfRef}
     >
       <div className="row">
         <div className="col-lg-4 col-md-4 col-sm-12">
@@ -83,3 +95,4 @@ export default function Main() {
     </main>
   );
 }
+
