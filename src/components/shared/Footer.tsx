@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer style={{ marginTop: "40px" }}>
+    <footer style={{ marginTop: "40px" }} className="noPrint">
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container">
           <ul className="navbar-nav mr-auto">

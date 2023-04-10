@@ -1,0 +1,14 @@
+@media print {
+  .noPrint {
+    display: none;
+  }
+
+
+  .badge {
+    color: #000 !important;
+    background-color: #fff !important;
+    padding: 2px 6px;
+    border: 1px solid #000;
+  }
+  
+}

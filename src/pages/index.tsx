@@ -1,6 +1,6 @@
 import Head from "next/head";
 // import styles from '@/styles/Home.module.css'
-import "bootstrap/dist/css/bootstrap.css";
+
 import Navigation from "@/components/shared/Navigation";
 import Web from "@/components/web/Web";
 import Data from "@/components/shared/Data";
@@ -9,10 +9,8 @@ import Footer from "@/components/shared/Footer";
 
 // Utils
 import { initializeIcons } from "@fluentui/font-icons-mdl2";
-import { useRef } from "react";
 
-// Styles
-import "bootstrap/dist/css/bootstrap.css";
+
 
 
 export default function Home() {
