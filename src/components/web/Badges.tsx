@@ -6,7 +6,6 @@ import { v4 as uuidv4 } from "uuid";
 
 // Interfaces
 import { PropsWithChildren } from "react";
-import { Stack } from "@fluentui/react";
 
 export default function Badges(props: PropsWithChildren) {
   if (props.children) {

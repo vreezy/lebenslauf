@@ -4,11 +4,11 @@
   }
 
 
-  .badge {
-    color: #000 !important;
+  #badge {
+    color: #555!important;
     background-color: #fff !important;
-    padding: 2px 6px;
-    border: 1px solid #000;
+    /* padding: 2px 6px; */
+    border: 1px solid #888;
   }
   
 }

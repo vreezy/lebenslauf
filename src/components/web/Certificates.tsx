@@ -28,6 +28,7 @@ export default function Certificates() {
 
   const buttonStyles: IButtonStyles = {
     root: {
+      display: "flex", // stretch width 100%
       height: "unset",
     },
     textContainer: {

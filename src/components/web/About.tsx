@@ -42,6 +42,7 @@ export default function About() {
     return false;
   }
 
+  const contactIcon: IIconProps = { iconName: "Contact" };
   const streetIcon: IIconProps = { iconName: "Street" };
   const websiteIcon: IIconProps = { iconName: "Website" };
   const phoneIcon: IIconProps = { iconName: "Phone" };
@@ -62,9 +63,25 @@ export default function About() {
       <Stack tokens={containerStackTokens}>
         <header>
           <StackItem>
-            <Top iconName="Contact">Über mich</Top>
+            <Top iconName="ContactCard">Über mich</Top>
           </StackItem>
         </header>
+
+        {resume.basics.name && (
+          <section>
+            <StackItem>
+              <ActionButton
+                styles={actionButtonStyles}
+                iconProps={contactIcon}
+                target="_blank"
+                readOnly
+                unselectable="on"
+              >
+                {resume.basics.name}
+              </ActionButton>
+            </StackItem>
+          </section>
+        )}
 
         {validateAdress(resume) && (
           <section>
