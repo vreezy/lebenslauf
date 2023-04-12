@@ -1,5 +1,5 @@
 // Components
-import { IStackTokens, Stack} from "@fluentui/react";
+import { IStackTokens, Stack, Text, FontIcon} from "@fluentui/react";
 import About from "@/components/web/About";
 import Certificates from "@/components/web/Certificates";
 import Skills from "@/components/web/Skills";
@@ -14,6 +14,8 @@ import Education from "./Education";
 // Stores
 import useSiteStore from "@/stores/site";
 import { shallow } from "zustand/shallow";
+import Title from "./Title";
+import { containerStyles } from "@/styles/styles";
 
 export default function Web() {
   const isLoading = useSiteStore((state) => state.isLoading, shallow);
@@ -42,10 +44,18 @@ export default function Web() {
   return (
     <main
       className="container"
-      style={{ maxWidth: "900px", marginTop: "20px" }}
+      style={{ ...containerStyles, marginTop: "20px" }}
     >
+      <section className="onlyPrint row" style={{padding: "20px"}}>
+        <Text block style={{ fontStyle: "italic", fontSize: "larger"}}><FontIcon aria-label="Info" iconName="Info"/> Die neuste Version dieses Lebenslaufes finden Sie immer unter "https://lebenslauf.vreezy.de".</Text>
+      </section>
+
+      {/* <div className="row">
+        <Title />
+      </div> */}
+
       <div className="row">
-        <div className="col-lg-4 col-md-4 col-sm-12">
+        <section className="col-lg-4 col-md-4 col-sm-12">
           <Stack tokens={mainTokens}>
             <About />
             <Certificates />
@@ -53,15 +63,15 @@ export default function Web() {
             <Languages />
             <Interests />
           </Stack>
-        </div>
-        <div className="col-lg-8 col-md-8 col-sm-12">
+        </section>
+        <section className="col-lg-8 col-md-8 col-sm-12">
           <Stack tokens={mainTokens}>
             <Summary />
             <Work />
             <Volunteer />
             <Education />
           </Stack>
-        </div>
+        </section>
       </div>
 
       <section className={"container"}>

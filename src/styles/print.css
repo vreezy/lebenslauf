@@ -1,6 +1,14 @@
+.onlyPrint {
+  display: none;
+}
+
 @media print {
   .noPrint {
     display: none;
+  }
+
+  .onlyPrint {
+    display: block;
   }
 
 

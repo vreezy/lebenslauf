@@ -1,11 +1,13 @@
 // Components
-import Container from "react-bootstrap/Container";
+import { containerStyles } from "@/styles/styles";
+import { Button } from "react-bootstrap";
+
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 
 function Navigation() {
   return (
-    <div className="noPrint">
+    <section className="noPrint">
     <Navbar
       collapseOnSelect
       expand="lg"
@@ -13,7 +15,7 @@ function Navigation() {
       variant="dark"
       
     >
-      <Container>
+      <div className="container" style={containerStyles}>
         <Navbar.Brand href="#home">Lebenslauf - Lars Eschweiler</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
@@ -38,11 +40,12 @@ function Navigation() {
             <Nav.Link eventKey={2} href="#memes">
               Dank memes
             </Nav.Link> */}
+            <Button onClick={() => window.print()}>Drucken</Button>
           </Nav>
         </Navbar.Collapse>
-      </Container>
+      </div>
     </Navbar>
-    </div>
+    </section>
   );
 }
 
