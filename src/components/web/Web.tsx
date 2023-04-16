@@ -47,7 +47,7 @@ export default function Web() {
       style={{ ...containerStyles, marginTop: "20px" }}
     >
       <section className="onlyPrint row" style={{padding: "20px"}}>
-        <Text block style={{ fontStyle: "italic", fontSize: "larger"}}><FontIcon aria-label="Info" iconName="Info"/> Die neuste Version dieses Lebenslaufes finden Sie immer unter "https://lebenslauf.vreezy.de".</Text>
+        <Text block style={{ fontStyle: "italic", fontSize: "larger"}}><FontIcon aria-label="Info" iconName="Info"/> Die neuste Version dieses Lebenslaufes finden Sie immer unter &quot;https://lebenslauf.vreezy.de&quot;.</Text>
       </section>
 
       {/* <div className="row">
