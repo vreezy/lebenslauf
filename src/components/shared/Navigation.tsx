@@ -1,4 +1,5 @@
 // Components
+import useSiteStore from "@/stores/site";
 import { containerStyles } from "@/styles/styles";
 import { Button } from "react-bootstrap";
 
@@ -6,6 +7,8 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 
 function Navigation() {
+  const setEditIsOpen = useSiteStore((state) => state.SetEditIsOpen);
+    
   return (
     <section className="noPrint">
     <Navbar
@@ -41,6 +44,7 @@ function Navigation() {
               Dank memes
             </Nav.Link> */}
             <Button onClick={() => window.print()}>Drucken</Button>
+            <Button onClick={() => setEditIsOpen(true)}>Drucken</Button>
           </Nav>
         </Navbar.Collapse>
       </div>

@@ -9,13 +9,10 @@ import Footer from "@/components/shared/Footer";
 
 // Utils
 import { initializeIcons } from "@fluentui/font-icons-mdl2";
-
-
-
+import Edit from "@/components/shared/Edit";
 
 export default function Home() {
   initializeIcons();
-
   
   return (
     <>
@@ -35,6 +32,8 @@ export default function Home() {
       <Dev />
 
       <Footer />
+
+      <Edit /> 
     </>
   );
 }

@@ -8,7 +8,8 @@ const initialSiteState: InitialSiteState = {
    isLoading: true,
    isError: false,
    resume: {},
-   pdfRef: null
+   pdfRef: null,
+   editIsOpen: false
 }
 
 const useSiteStore = create<SiteState>()(
@@ -19,6 +20,7 @@ const useSiteStore = create<SiteState>()(
       setError: (bool) => set(() => ({ isError: bool })),
       setResume: (resume) => set(() => ({ resume })),
       setPdfRef: (pdfRef) => set(() => ({ pdfRef })),
+      SetEditIsOpen: (bool) => set(() => ({ editIsOpen: bool })),
       
       reset: () => set({ ...initialSiteState }),
     }),
