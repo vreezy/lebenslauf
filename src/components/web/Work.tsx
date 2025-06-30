@@ -68,21 +68,27 @@ export default function Work() {
                       </Stack>
                     </StackItem>
                   </section>
-                  <section>
-                    <StackItem>
-                      <Text block>{work.description}</Text>
-                    </StackItem>
-                  </section>
-                  <section>
-                    <StackItem>
-                      <Text block>{work.summary}</Text>
-                    </StackItem>
-                  </section>
-                  <section>
-                    <StackItem>
-                      <List>{work.highlights}</List>
-                    </StackItem>
-                  </section>
+                  {work.description &&
+                    <section>
+                      <StackItem>
+                        <Text block>{work.description}</Text>
+                      </StackItem>
+                    </section>
+                  }
+                  {work.summary &&
+                    <section>
+                      <StackItem>
+                        <Text block>{work.summary}</Text>
+                      </StackItem>
+                    </section>
+                  }
+                  { work.highlights && 
+                    <section>
+                      <StackItem>
+                        <List>{work.highlights}</List>
+                      </StackItem>
+                    </section>
+                  }
                 </Stack>
               </StackItem>
             </article>
