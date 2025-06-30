@@ -109,21 +109,6 @@ export default function About() {
           </section>
         )}
 
-        {resume.basics.email && (
-          <section>
-            <StackItem>
-              <ActionButton
-                href={`mailto: ${resume.basics.email}`}
-                styles={actionButtonStyles}
-                iconProps={mailIcon}
-                target="_blank"
-              >
-                {resume.basics.email}
-              </ActionButton>
-            </StackItem>
-          </section>
-        )}
-
         {resume.basics.phone && (
           <section>
             <StackItem>
@@ -138,6 +123,22 @@ export default function About() {
             </StackItem>
           </section>
         )}
+
+        {resume.basics.email && (
+          <section>
+            <StackItem>
+              <ActionButton
+                href={`mailto: ${resume.basics.email}`}
+                styles={actionButtonStyles}
+                iconProps={mailIcon}
+                target="_blank"
+              >
+                {resume.basics.email}
+              </ActionButton>
+            </StackItem>
+          </section>
+        )}
+        
         {resume.basics.url && (
           <section>
             <StackItem>
