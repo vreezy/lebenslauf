@@ -38,13 +38,13 @@ function Navigation() {
             </NavDropdown> */}
           </Nav>
 
-          <Nav>
+          <Nav style={{gap: "0.6rem"}}>
             {/* <Nav.Link href="#deets">More deets</Nav.Link>
             <Nav.Link eventKey={2} href="#memes">
               Dank memes
             </Nav.Link> */}
             <Button onClick={() => window.print()}>Drucken</Button>
-            <Button onClick={() => setEditIsOpen(true)}>Drucken</Button>
+            <Button onClick={() => setEditIsOpen(true)}>Bearbeiten</Button>
           </Nav>
         </Navbar.Collapse>
       </div>
