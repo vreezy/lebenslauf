@@ -29,7 +29,7 @@ export default function About() {
     return null;
   }
 
-  function validateAdress(resume: ResumeSchema): boolean {
+  function validateAddress(resume: ResumeSchema): boolean {
     if (
       resume.basics?.location?.address &&
       resume.basics?.location?.countryCode &&
@@ -83,7 +83,7 @@ export default function About() {
           </section>
         )}
 
-        {validateAdress(resume) && (
+        {validateAddress(resume) && (
           <section>
             <StackItem>
               <ActionButton

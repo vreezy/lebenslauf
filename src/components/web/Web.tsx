@@ -14,7 +14,6 @@ import Education from "./Education";
 // Stores
 import useSiteStore from "@/stores/site";
 import { shallow } from "zustand/shallow";
-import Title from "./Title";
 import { containerStyles } from "@/styles/styles";
 
 export default function Web() {
@@ -46,9 +45,9 @@ export default function Web() {
       className="container"
       style={{ ...containerStyles, marginTop: "20px" }}
     >
-      <section className="onlyPrint row" style={{padding: "20px"}}>
+      {/* <section className="onlyPrint row" style={{padding: "20px"}}>
         <Text block style={{ fontStyle: "italic", fontSize: "larger"}}><FontIcon aria-label="Info" iconName="Info"/> Die neuste Version dieses Lebenslaufes finden Sie immer unter &quot;https://lebenslauf.vreezy.de&quot;.</Text>
-      </section>
+      </section> */}
 
       {/* <div className="row">
         <Title />
