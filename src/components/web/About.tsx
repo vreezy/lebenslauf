@@ -51,7 +51,7 @@ export default function About() {
   const actionButtonStyles: IButtonStyles = {
     label: {
       margin: 0,
-      textAlign: "unset"
+      textAlign: "left"
     },
     root: {
       padding: 0,
