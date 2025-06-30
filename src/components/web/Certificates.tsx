@@ -30,6 +30,7 @@ export default function Certificates() {
     root: {
       display: "flex", // stretch width 100%
       height: "unset",
+      textAlign: "unset"
     },
     textContainer: {
       padding: "5px",
