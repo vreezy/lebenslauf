@@ -43,8 +43,9 @@ function Navigation() {
             <Nav.Link eventKey={2} href="#memes">
               Dank memes
             </Nav.Link> */}
+            <Button onClick={() => setEditIsOpen(true)} variant="secondary">Bearbeiten</Button>
             <Button onClick={() => window.print()}>Drucken</Button>
-            <Button onClick={() => setEditIsOpen(true)}>Bearbeiten</Button>
+            
           </Nav>
         </Navbar.Collapse>
       </div>
