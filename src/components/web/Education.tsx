@@ -57,16 +57,20 @@ export default function Education() {
                       </Stack>
                     </StackItem>
                   </header>
-                  <section>
-                    <StackItem>
-                      <Text block>{education.studyType}</Text>
-                    </StackItem>
-                  </section>
-                  <section>
-                    <StackItem>
-                      <List>{education.courses}</List>
-                    </StackItem>
-                  </section>
+                  {education.studyType &&
+                    <section>
+                      <StackItem>
+                        <Text block>{education.studyType}</Text>
+                      </StackItem>
+                    </section>
+                  }
+                  {education.courses && education.courses.length > 0 &&
+                    <section>
+                      <StackItem>
+                        <List>{education.courses}</List>
+                      </StackItem>
+                    </section>
+                  }
                 </Stack>
               </StackItem>
             </article>

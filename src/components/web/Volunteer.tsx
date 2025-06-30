@@ -54,21 +54,27 @@ export default function Volunteer() {
                       </Stack>
                     </StackItem>
                   </header>
-                  <section>
-                    <StackItem>
-                      <Text block>{volunteer.position}</Text>
-                    </StackItem>
-                  </section>
-                  <section>
-                    <StackItem>
-                      <Text block>{volunteer.summary}</Text>
-                    </StackItem>
-                  </section>
-                  <section>
-                    <StackItem>
-                      <List>{volunteer.highlights}</List>
-                    </StackItem>
-                  </section>
+                  {volunteer.position &&
+                    <section>
+                      <StackItem>
+                        <Text block>{volunteer.position}</Text>
+                      </StackItem>
+                    </section>
+                  }
+                  {volunteer.summary &&
+                    <section>
+                      <StackItem>
+                        <Text block>{volunteer.summary}</Text>
+                      </StackItem>
+                    </section>
+                  }
+                  {volunteer.highlights && volunteer.highlights.length > 0 &&
+                    <section>
+                      <StackItem>
+                        <List>{volunteer.highlights}</List>
+                      </StackItem>
+                    </section>
+                  }
                 </Stack>
               </StackItem>
             </article>
