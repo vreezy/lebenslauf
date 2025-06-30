@@ -54,7 +54,7 @@ export default function Web() {
       </div> */}
 
       <div className="row">
-        <section className="col-lg-4 col-md-4 col-sm-12">
+        <section className="col-lg-4 col-md-4 col-sm-4">
           <Stack tokens={mainTokens}>
             <About />
             <Certificates />
@@ -63,7 +63,7 @@ export default function Web() {
             <Interests />
           </Stack>
         </section>
-        <section className="col-lg-8 col-md-8 col-sm-12">
+        <section className="col-lg-8 col-md-8 col-sm-8">
           <Stack tokens={mainTokens}>
             <Summary />
             <Work />
