@@ -20,7 +20,7 @@ export default function Languages() {
   }
 
   return (
-    <article>
+    <article style={{marginBottom: "2rem"}}>
       <Stack tokens={containerStackTokens}>
         <header>
           <StackItem>
