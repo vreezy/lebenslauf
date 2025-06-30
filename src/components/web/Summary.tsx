@@ -26,7 +26,10 @@ export default function Summary() {
         </header>
         <section>
           <StackItem>
-            <Text block>{resume.basics.summary}</Text>
+            <div
+              dangerouslySetInnerHTML={{__html: resume.basics.summary ?? ""}}
+            />
+            {/* <Text block >{resume.basics.summary}</Text> */}
           </StackItem>
         </section>
       </Stack>
